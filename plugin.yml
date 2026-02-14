@@ -1,0 +1,17 @@
+name: CustomEnchants
+main: com.example.customenchants.CustomEnchantsPlugin
+version: 1.0.0
+api-version: 1.20
+description: "Adds three custom enchantments: Lightning Edge, Lifesteal, Shadow Step"
+author: YourName
+
+commands:
+	giveenchant:
+		description: Apply a custom enchant to the item in your main hand
+		usage: /giveenchant <lightning|lifesteal|shadow> [level]
+		permission: customenchants.give
+
+permissions:
+	customenchants.give:
+		description: Allows using /giveenchant
+		default: op
