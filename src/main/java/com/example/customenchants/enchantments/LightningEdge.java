@@ -22,9 +22,9 @@ public class LightningEdge extends Enchantment {
     }
 
     @Override
-    public double getDamageIncrease(int level, org.bukkit.entity.EntityType entityType) {
+    public float getDamageIncrease(int level, org.bukkit.entity.EntityType entityType) {
         // This enchantment does not increase damage directly
-        return 0;
+        return 0f;
     }
 
     @Override
