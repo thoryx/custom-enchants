@@ -1,4 +1,4 @@
-name: Build and attach JAR to release
+name: Build and release single JAR
 
 on:
   push:
@@ -20,6 +20,11 @@ jobs:
       - name: Build with Maven
         run: mvn -DskipTests package
 
+      - name: Rename JAR for release
+        run: |
+          JAR=$(ls target/*.jar | head -n1)
+          mv "$JAR" target/custom-enchants.jar
+
       - name: Create GitHub release
         id: cr
         uses: softprops/action-gh-release@v1
@@ -31,6 +36,6 @@ jobs:
       - name: Upload release asset
         uses: softprops/action-gh-release@v1
         with:
-          files: target/*.jar
+          files: target/custom-enchants.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
