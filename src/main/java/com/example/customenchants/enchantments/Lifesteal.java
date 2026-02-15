@@ -27,6 +27,15 @@ public class Lifesteal extends Enchantment {
         return 0f;
     }
 
+    /**
+     * Deprecated, for Paper 1.20.6 compatibility.
+     */
+    @Override
+    @Deprecated
+    public float getDamageIncrease(int level, org.bukkit.entity.EntityCategory entityCategory) {
+        return 0f;
+    }
+
     @Override
     public boolean canEnchantItem(ItemStack item) {
         return item != null && item.getType().name().endsWith("_SWORD");
