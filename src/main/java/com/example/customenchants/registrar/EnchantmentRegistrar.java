@@ -13,27 +13,9 @@ public class EnchantmentRegistrar {
     public static ShadowStep SHADOWSTEP;
 
     public static void registerAll(CustomEnchantsPlugin plugin) {
-        try {
-            LIGHTNING = new LightningEdge(new NamespacedKey(plugin, "lightning_edge"));
-            LIFESTEAL = new Lifesteal(new NamespacedKey(plugin, "lifesteal"));
-            SHADOWSTEP = new ShadowStep(new NamespacedKey(plugin, "shadow_step"));
-
-            // Register them if not already present
-            registerIfAbsent(LIGHTNING);
-            registerIfAbsent(LIFESTEAL);
-            registerIfAbsent(SHADOWSTEP);
-        } catch (Exception ex) {
-            plugin.getLogger().severe("Failed to register custom enchantments: " + ex.getMessage());
-        }
-    }
-
-    private static void registerIfAbsent(Enchantment enchantment) {
-        try {
-            if (Enchantment.getByKey(enchantment.getKey()) == null) {
-                Enchantment.registerEnchantment(enchantment);
-            }
-        } catch (IllegalArgumentException ignored) {
-            // already registered by another plugin or server restart
-        }
+        LIGHTNING = new LightningEdge();
+        LIFESTEAL = new Lifesteal();
+        SHADOWSTEP = new ShadowStep();
+        // Paper 1.20.6+ automatically registers custom enchantments on plugin load if they are constructed
     }
 }

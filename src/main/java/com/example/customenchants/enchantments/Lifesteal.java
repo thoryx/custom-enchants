@@ -1,13 +1,24 @@
 package com.example.customenchants.enchantments;
 
-import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.NamespacedKey;
+import java.util.Set;
 
 public class Lifesteal extends Enchantment {
-    public Lifesteal(NamespacedKey key) {
-        super(key);
+    private static final NamespacedKey KEY = NamespacedKey.minecraft("lifesteal");
+    public Lifesteal() {
+        super();
+    }
+    @Override
+    public NamespacedKey getKey() {
+        return KEY;
+    }
+    @Override
+    public Set<EquipmentSlot> getActiveSlots() {
+        return Set.of(EquipmentSlot.HAND);
     }
 
     @Override
