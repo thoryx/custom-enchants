@@ -1,5 +1,7 @@
 package com.example.customenchants.enchantments;
 
+import org.bukkit.enchantments.Rarity;
+
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.inventory.EquipmentSlot;
