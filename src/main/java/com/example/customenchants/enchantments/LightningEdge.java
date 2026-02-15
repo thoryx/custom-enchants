@@ -13,6 +13,10 @@ public class LightningEdge extends Enchantment {
         super();
     }
     @Override
+    public Rarity getRarity() {
+        return Rarity.RARE;
+    }
+    @Override
     public NamespacedKey getKey() {
         return KEY;
     }
